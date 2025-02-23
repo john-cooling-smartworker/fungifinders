@@ -251,7 +251,7 @@
     flex-wrap: wrap;
     gap: 0.5rem 1rem;
   }
-  .primary-nav {
+  .primary-navigation {
     ul {
       display: flex;
       flex-wrap: wrap;

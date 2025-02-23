@@ -44,7 +44,20 @@
             src="/assets/fungi-finders.svg"
             alt="Fungi Finders"
           />
-          <nav class="primary-nav">
+          <button
+            aria-controls="primary-nav"
+            aria-expanded="false"
+          >
+            <span class="visually-hidden">Menu</span>
+            <img
+              src="/assets/hamburger.svg"
+              alt=""
+            />
+          </button>
+          <nav
+            id="primary-nav"
+            class="primary-navigation"
+          >
             <ul>
               <li><a href="/">Discover</a></li>
               <li><a href="#">Mushroom Guide</a></li>
@@ -65,7 +78,7 @@
         >
           <h1 class="hero__title">
             Discover the World of
-            <span >Mushroom Foraging</span>
+            <span>Mushroom Foraging</span>
           </h1>
           <div
             class="wrapper"
@@ -112,7 +125,7 @@
                 src="./assets/outdoor-exploration.webp"
                 alt="Mushrooms growing on a tree"
               />
-              <h3 class="card-title grid-flow  ">Outdoor Exploration</h3>
+              <h3 class="card-title grid-flow">Outdoor Exploration</h3>
               <p>
                 Mushroom foraging takes you off the beaten path and into the
                 heart of nature. Learn to read the landscape, identifying prime
@@ -126,7 +139,7 @@
                 src="./assets/botanical-expertise.webp"
                 alt="Mushrooms varieties display about 5 of them"
               />
-              <h3 class="card-title grid-flow  ">Botanical Expertise</h3>
+              <h3 class="card-title grid-flow">Botanical Expertise</h3>
               <p>
                 Dive into the intricate world of fungal biology. Discover the
                 unique structures of mushrooms, from caps to gills to spores.
@@ -141,7 +154,7 @@
                 src="./assets/culinary-delight.webp"
                 alt="A lovely dish of mushrooms and poached egg on toast"
               />
-              <h3 class="card-title  ">Culinary Delights</h3>
+              <h3 class="card-title">Culinary Delights</h3>
               <p>
                 Transform your foraged finds into delectable dishes. Many edible
                 mushrooms offer unique flavors and textures that can elevate
@@ -179,39 +192,37 @@
           class="wrapper"
           data-width="wide"
         >
-
-            <div
-              class="equal-columns"
-              data-gap="large"
-              data-alignment="centered"
-            >
-              <div>
-                <img
-                  src="./assets/get-to-know.webp"
-                  alt="Searching the forrest floor for mushrooms"
-                />
-              </div>
-              <div class="flow font-size-lg">
-                <h2 class="section-title">Get to know your mushrooms</h2>
-                <p>
-                  Successful and safe mushroom foraging begins with a deep
-                  understanding of the species you'll encounter in the wild -
-                  not just what the edible ones look like, but their toxic
-                  look-alikes, seasonal patterns, and preferred habitats.
-                </p>
-                <p>
-                  It can feel like a big task, but we’ve got a handy reference
-                  guide to help you out!
-                </p>
-                <a
-                  class="button"
-                  href="#"
-                  ><span class="visually-hidden"
-                    >Learn more about how to get to know your mushroom</span
-                  >
-                  Reference Guide</a
+          <div
+            class="equal-columns"
+            data-gap="large"
+            data-alignment="centered"
+          >
+            <div>
+              <img
+                src="./assets/get-to-know.webp"
+                alt="Searching the forrest floor for mushrooms"
+              />
+            </div>
+            <div class="flow font-size-lg">
+              <h2 class="section-title">Get to know your mushrooms</h2>
+              <p>
+                Successful and safe mushroom foraging begins with a deep
+                understanding of the species you'll encounter in the wild - not
+                just what the edible ones look like, but their toxic
+                look-alikes, seasonal patterns, and preferred habitats.
+              </p>
+              <p>
+                It can feel like a big task, but we’ve got a handy reference
+                guide to help you out!
+              </p>
+              <a
+                class="button"
+                href="#"
+                ><span class="visually-hidden"
+                  >Learn more about how to get to know your mushroom</span
                 >
-              </div>
+                Reference Guide</a
+              >
             </div>
           </div>
         </div>
@@ -221,30 +232,34 @@
           class="wrapper equal-columns"
           data-width="wide"
         >
-        <div class="equal-columns data-gap="large" data-alignment='centered'->
-          <div class="flow font-size-lg">
-            <h2 class="section-title">Connect with Nature</h2>
-            <p>
-              Experience the beauty of the great outdoors while foraging for
-              mushrooms with fellow enthusiasts.
-            </p>
-            <a
-              class="button"
-              href="#"
-              >Learn More
-              <span class="visually-hidden">
-                about the different types of mushrooms using our guide</span
-              ></a
-            >
-          </div>
-          <div>
-            <img
-              src="./assets/nature.webp"
-              alt="Searching the forrest floor for mushrooms"
-            />
+          <div
+            class="equal-columns"
+            data-gap="large"
+            data-vertical-alignment="centered"
+          >
+            <div class="flow font-size-lg">
+              <h2 class="section-title">Connect with Nature</h2>
+              <p>
+                Experience the beauty of the great outdoors while foraging for
+                mushrooms with fellow enthusiasts.
+              </p>
+              <a
+                class="button"
+                href="#"
+                >Learn More
+                <span class="visually-hidden">
+                  about the different types of mushrooms using our guide</span
+                ></a
+              >
+            </div>
+            <div>
+              <img
+                src="./assets/nature.webp"
+                alt="Searching the forrest floor for mushrooms"
+              />
+            </div>
           </div>
         </div>
-      </div>
       </section>
     </main>
     <footer class="site-footer">
