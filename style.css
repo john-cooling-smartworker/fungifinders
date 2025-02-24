@@ -241,6 +241,22 @@
   }
 }
 @layer components {
+  /* just for the keyborad junkies to navigate to content directly*/
+  .skip-to-main:not(:focus) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  .skip-to-main {
+    position: absolute;
+    background-color: var(--background-accent-main);
+    padding: 1rem;
+    border-radius: var(--border-radius-2);
+  }
   /* used for one off type components */
   .site-header {
     padding-block: 1rem;
@@ -280,7 +296,6 @@
     }
 
     @media (width < 760px) {
-
       display: none;
       position: absolute;
       top: 0;
@@ -308,13 +323,13 @@
 
   @media (width < 760px) {
     [aria-controls='primary-nav'] {
-        display: block;
-      }
+      display: block;
+    }
     [aria-expanded='true'] + .primary-navigation {
       display: block;
     }
   }
-  
+
   .site-footer {
     text-align: center;
     padding-block: 2rem;
