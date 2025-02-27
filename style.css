@@ -398,7 +398,7 @@
       grid-template-areas:
         'card-two card-four'
         'card-three card-one ';
-
+      }
 
     @media (width > 900px) {
       grid-template-columns: repeat(3, 1fr);
@@ -517,6 +517,7 @@
     color: var(--text-high-contrast);
     background-color: var(--background-accent-light);
   }
+
   select {
     padding: 0.5rem 1rem;
     background-color: var(--background-accent-main);
@@ -581,5 +582,4 @@
   .font-size-lg {
     font-size: var(--font-size-lg);
   }
-}
 }
