@@ -1,5 +1,13 @@
 @layer reset, base, layout, components, utilities;
 
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-group(root) {
+  animation-duration: 1s;
+}
+
 @layer reset {
   *,
   *::before,
@@ -155,7 +163,6 @@
     scroll-behavior: smooth; /* makes the FAQ link smooth scrool instead of jumping*/
   }
 
-
   body {
     font-family: var(--ff-body);
     font-size: var(--font-size-regular);
@@ -284,78 +291,121 @@
     padding: 1rem;
     border-radius: var(--border-radius-2);
   }
-  /* used for one off type components */
   .site-header {
     padding-block: 1rem;
   }
-  .site-header__layout {
+
+  .site-header__inner {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 0.5rem 1rem;
-  }
-
-  [aria-controls='primary-nav'] {
-    z-index: 100;
-    background: transparent;
-    cursor: pointer;
-    border: 0;
-
-    img {
-      border-radius: 0;
-    }
-  }
-
-  [aria-controls='primary-nav'] {
-    display: none;
+    gap: 0.5rem 2rem;
+    justify-content: space-between;
   }
 
   .primary-navigation {
     ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
-      list-style: none;
+      gap: 0.5rem 2rem;
     }
 
     a {
       text-decoration: none;
     }
+  }
 
-    @media (width < 760px) {
-      display: none;
-      position: absolute;
-      top: 0;
-      right: 0;
-      z-index: 10;
-      font-size: var(--font-size-lg);
-      font-weight: 700;
-      font-family: var(--ff-heading);
-      background-color: var(--background-accent-main);
-      padding: 2rem;
-      border-radius: 0 0 0 var(--border-radius-3);
-
-      ul {
-        gap: 0;
-        flex-direction: column;
-      }
-
-      li + li {
-        margin-block-start: 1.5rem;
-        padding-block-start: 1.5rem;
-        border-top: 2px solid var(--background-accent-light);
-      }
-    }
+  [aria-controls="primary-navigation"] {
+    display: none;
   }
 
   @media (width < 760px) {
-    [aria-controls='primary-nav'] {
+    [aria-controls="primary-navigation"] {
       display: block;
+      z-index: 100;
+      background: transparent;
+      border: 0;
+
+      img {
+        border-radius: 0;
+      }
     }
-    [aria-expanded='true'] + .primary-navigation {
+
+    .site-header {
+      position: relative;
+    }
+
+    .primary-navigation {
+      display: none;
+      opacity: 0;
+
+      transition: display 1s, opacity 1s;
+      transition-behavior: allow-discrete;
+
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      right: 0;
+      padding: 2rem;
+      border-radius: 0 0 0 var(--border-radius-3);
+      background: var(--background-accent-main);
+
+      ul {
+        flex-direction: column;
+        gap: 0;
+        font-size: var(--fs-700);
+        font-family: var(--ff-heading);
+        font-weight: 700;
+      }
+
+      li {
+        translate: 0;
+        opacity: 1;
+
+        transition: opacity 300ms, translate 875ms;
+        transition-delay: var(--delay, 125ms);
+
+        &:nth-child(2) {
+          --delay: 250ms;
+        }
+
+        &:nth-child(3) {
+          --delay: 325ms;
+        }
+      }
+
+      li + li {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 2px solid var(--background-accent-light);
+      }
+    }
+
+    [aria-expanded="true"] ~ .primary-navigation {
       display: block;
+      opacity: 1;
+
+      @starting-style {
+        display: block;
+        opacity: 0;
+      }
+
+      li {
+        translate: 0;
+        opacity: 1;
+
+        @starting-style {
+          translate: 100%;
+          opacity: 0;
+        }
+      }
     }
   }
+  /* used for one off type components */
+  
+
 
   .site-footer {
     text-align: center;
@@ -524,7 +574,6 @@
     font-size: var(--font-size-md);
     font-weight: 700;
     border-radius: var(--button-br, var(--border-radius-1));
-
   }
   .button:hover,
   .button:focus-visible {
@@ -533,10 +582,10 @@
   }
 
   .button--brand {
-  --button-bg: var(--clr-brand);
-  --button-bg-hover: var(--clr-brand-light);
-  --button-text-hover: var(--background-extra-dark);
-}
+    --button-bg: var(--clr-brand);
+    --button-bg-hover: var(--clr-brand-light);
+    --button-text-hover: var(--background-extra-dark);
+  }
 
   select {
     padding: 0.5rem 1rem;
@@ -547,7 +596,6 @@
   }
 }
 @layer utilities {
-
   [hidden] {
     display: none;
   }

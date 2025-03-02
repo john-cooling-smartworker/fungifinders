@@ -9,6 +9,13 @@ const currentFilters = {
   edible: "all",
 };
 
+// this part makes them slide around 
+cards.forEach((card, index) => {
+  // You can use a data attribute if cards have unique IDs
+  const mushroomId = `mushroom-${index + 1}`;
+  card.style.viewTransitionName = `mushroom-card-${mushroomId}`;
+});
+
 seasonalFilter.addEventListener('change', updateFilter);
 edibleFilter.addEventListener('change', updateFilter);
 
@@ -16,7 +23,12 @@ function updateFilter(e) {
   const filterType = e.target.name;
   currentFilters[filterType] = e.target.value;
   console.log(currentFilters);
-  filterCards();
+
+ if (!document.startViewTransition) {
+   filterCards();
+   return;
+ }
+ document.startViewTransition(() => filterCards());
 }
 
 function filterCards() {
